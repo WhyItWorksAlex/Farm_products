@@ -3,7 +3,7 @@ import { Swiper } from "swiper/react";
 
 export const StyledSwiper = styled(Swiper)`
   width: 747px;
-  height: calc(100vh - 233px);
+  height: 713px;
   margin-right: -20px;
 
   .swiper-wrapper {
