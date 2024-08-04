@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Label,
   LabelComponent,
@@ -6,8 +6,14 @@ import {
   LabelMark,
 } from "./styles";
 
-function Checkbox({ text, value, name, onChange }) {
+function Checkbox({ text, value, name, onChange, selectedGoods }) {
   const [isChecked, setIsChecked] = useState(false);
+
+  useEffect (() => {
+    if (selectedGoods.length === 0) {
+      setIsChecked(false);
+    }
+  }, [selectedGoods])
 
   return (
     <Label>
@@ -26,3 +32,4 @@ function Checkbox({ text, value, name, onChange }) {
 }
 
 export default Checkbox;
+

@@ -32,6 +32,7 @@ function ProductType({
             return (
               <li key={good.id}>
                 <Checkbox
+                  selectedGoods = {selectedGoods}
                   text={good.title}
                   value={good.id}
                   name={Object.keys(good)}

@@ -8,7 +8,7 @@ import {
 } from "./styles";
 import Title, { TitleSize } from "/src/components/ui/title/title";
 
-function FinishOrder({ selectedGoods, goods }) {
+function FinishOrder({ selectedGoods, goods, setSelectedGoods }) {
   function findGood(value) {
     return goods.find((good) => good.id === value);
   }
@@ -23,12 +23,15 @@ function FinishOrder({ selectedGoods, goods }) {
 
   const handleBuyClick = (event) => {
     event.preventDefault();
+    document.querySelector('form').reset();
     alert(
       `Вы заказали:\n${selectedGoods
         .map((value) => findGood(value).title)
         .join("\n")}\nНа сумму ${summary()} рублей по адресу: ${address} 
         `
     );
+    setAddress('');
+    setSelectedGoods([]);
   };
 
   const [address, setAddress] = useState("");
